@@ -11,7 +11,8 @@
   <li>Nenhuma anotação por enquanto.</li>
   {% endfor %}
 </ul>
-<!-- <form method="post" action="/">
+<form method="post" action="/">
+    {% csrf_token %}
     <label for="titulo">Título</label>
     <input id="titulo" type="text" name="titulo" />
   
@@ -20,4 +21,4 @@
   
     <input type="submit" />
   </form>
-{% endblock %} -->
+{% endblock %}
