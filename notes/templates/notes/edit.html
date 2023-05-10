@@ -1,0 +1,21 @@
+{% extends "notes/base.html" %}
+
+{% block content %}
+<h1>Get-it</h1>
+
+<ul>
+  <li>{{ note.title }}</li>
+  <p>{{note.content}}</p>
+</ul>
+
+<form method="post" action="{% url 'edit-note' note.id %}">
+    {% csrf_token %}
+    <label for="titulo">Título</label>
+    <input id="titulo" type="text" name="titulo" value="{{ note.title }}" />
+  
+    <label for="detalhes">Detalhes</label>
+    <textarea id="detalhes" name="detalhes">{{ note.content }}</textarea> 
+  
+    <input type="submit" value="Salvar" />
+</form>
+{% endblock %}
