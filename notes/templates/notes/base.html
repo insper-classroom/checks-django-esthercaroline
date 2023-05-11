@@ -7,6 +7,15 @@
   </head>
 
   <body>
+    {% if user.is_authenticated %}
+    {{ user.first_name }} {{user.last_name}} 
+    
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Sair</button>
+    </form>
+    {% endif %}
+  
     {% block content %} {% endblock %}
   </body>
 </html>

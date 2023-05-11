@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Note
+from django.contrib.auth.decorators import login_required
 
 
 
 
+
+@login_required
 def index(request):
     if request.method == 'POST':
         title = request.POST.get('titulo')
